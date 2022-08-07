@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:lottie/lottie.dart';
 import 'package:redux/redux.dart';
 
@@ -22,17 +21,14 @@ class _LoadingPageState extends State<LoadingPage> with TickerProviderStateMixin
 
   /// 需要预先存储的数据
   late final String ip;
-  late final double longitude;
-  late final double latitude;
-  late final DateTime dateTime;
-  late final Position position;
+  late final String address;
+
+
   Device device = Device();
 
   void initPrint(){
     print(ip);
-    print(longitude);
-    print(latitude);
-    print(dateTime);
+    print(address);
   }
 
   @override
@@ -56,12 +52,9 @@ class _LoadingPageState extends State<LoadingPage> with TickerProviderStateMixin
       converter: (Store store) {
         return () async => {
           ip = await device.getIp(),
-          position = await device.getPosition(),
-          longitude = position.longitude,
-          latitude = position.latitude,
-          dateTime = position.timestamp ?? DateTime(2001,8,1),
+          address = 'DateTime.now()',
           initPrint(),
-          store.dispatch(SetDeviceDataAction(ip: ip,longitude: longitude,latitude: latitude,dateTime: dateTime)),
+          store.dispatch(SetDeviceDataAction(ip: ip,address: '')),
         };
       },
       builder: (BuildContext context, AsyncCallback callback) {

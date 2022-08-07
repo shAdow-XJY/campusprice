@@ -29,9 +29,9 @@ class AppState {
    * 这里用来初始化
    */
   AppState.initialState() {
-    userModel = UserModel(school: '',zone: '');
+    userModel = UserModel(school: '卡塞尔学院',zone: '执行部中国分部');
     themeModel = ThemeModel(themeData: ThemeData.dark());
-    deviceModel = DeviceModel(ip: '0.0.0.0', longitude: 0.0, latitude: 0.0, dateTime: DateTime(2001,8,1));
+    deviceModel = DeviceModel(ip: '0.0.0.0', address: '中国福建省');
   }
 
   AppState copyWith ({themeModel,userModel,deviceModel}){
@@ -44,7 +44,12 @@ class AppState {
         zone: userModel.zone ?? this.userModel.zone,
         avatar: userModel.avatar ?? this.userModel.avatar,
       ),
-      deviceModel: deviceModel ?? this.deviceModel,
+      deviceModel: deviceModel == null
+          ? this.deviceModel
+          : DeviceModel(
+          ip: deviceModel.ip ?? this.deviceModel.ip,
+          address: deviceModel.address ?? this.deviceModel.address,
+      ),
     );
   }
 
