@@ -1,3 +1,4 @@
+import 'package:campusprice_flutter/service/http/device_service.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -5,6 +6,7 @@ import 'package:lottie/lottie.dart';
 import 'package:redux/redux.dart';
 
 import '../../functions/device_class.dart';
+import '../../model/response.dart';
 import '../../redux/action/device_action.dart';
 import '../../redux/app_state/state.dart';
 
@@ -21,14 +23,17 @@ class _LoadingPageState extends State<LoadingPage> with TickerProviderStateMixin
 
   /// 需要预先存储的数据
   late final String ip;
-  late final String address;
+  late final String country;
+  late final String province;
+  late final String city;
 
-
-  Device device = Device();
+  late final RResponse R;
 
   void initPrint(){
     print(ip);
-    print(address);
+    print(country);
+    print(province);
+    print(city);
   }
 
   @override
@@ -51,10 +56,15 @@ class _LoadingPageState extends State<LoadingPage> with TickerProviderStateMixin
     return StoreConnector<AppState, AsyncCallback>(
       converter: (Store store) {
         return () async => {
-          ip = await device.getIp(),
-          address = 'DateTime.now()',
+          ip = await Device.getIp(),
+          R = await DeviceService.getCountryProvinceCity(ip),
+          {
+            country = R.data["location"]["country"],
+            province = R.data["location"]["province"],
+            city = R.data["location"]["city"],
+          },
           initPrint(),
-          store.dispatch(SetDeviceDataAction(ip: ip,address: '')),
+          store.dispatch(SetDeviceDataAction(ip: ip,country: country,province: province,city: city)),
         };
       },
       builder: (BuildContext context, AsyncCallback callback) {

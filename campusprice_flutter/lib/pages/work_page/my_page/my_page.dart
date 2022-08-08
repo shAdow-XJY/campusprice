@@ -90,14 +90,26 @@ class _MyBodyState extends State<MyBody> {
           ),
           Expanded(
             flex: 3,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: const [
-                InfomationListItem(title: 'school',icon: Icons.school,),
-                InfomationListItem(title: 'zone',icon: Icons.house,),
-                InfomationListItem(title: 'ip',icon: Icons.phone_android,),
-              ],
-            )
+            child: StoreConnector<AppState, Map<String, dynamic>>(
+                converter: (Store store) {
+                  /// 返回的就是下面的 Map<String, dynamic> info
+                  return {
+                    "school" : store.state.userModel.school,
+                    "zone" : store.state.userModel.zone,
+                    "address" : store.state.deviceModel.getAddress(),
+                  };
+                },
+                builder: (BuildContext context, Map<String, dynamic> info) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      InfomationListItem(title: info["school"],icon: Icons.school,),
+                      InfomationListItem(title: info["zone"],icon: Icons.house,),
+                      InfomationListItem(title: info["address"],icon: Icons.phone_android,),
+                    ],
+                  );
+                },
+            ),
           ),
         ],
       ),

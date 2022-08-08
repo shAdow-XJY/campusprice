@@ -1,10 +1,13 @@
 ## campusprice_springboot
 CampusPrice项目后台支持项目，spring boot框架
 
+### debug
+1. [http://localhost:8081/swagger-ui/](http://localhost:8081/swagger-ui/)
+
 ### use
 1. mysql
 2. mybatis-plus
-3. 
+3. swagger 3.0
 
 ### reference
 1. [整合GeoLite2实现IP转经纬度](https://blog.csdn.net/qq_40711092/article/details/124530692)

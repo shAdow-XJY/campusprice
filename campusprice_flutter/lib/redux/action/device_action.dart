@@ -7,18 +7,26 @@ class SetDeviceDataAction {
 
   /// 设备ip地址
   String? ip;
+  /// 国家
+  String? country;
+  /// 省份
+  String? province;
   /// 城市
-  String? address;
+  String? city;
 
   SetDeviceDataAction({
     this.ip,
-    this.address,
+    this.country,
+    this.province,
+    this.city,
   }) : super();
 
   /// 设置设备 Device 的 数据
   static DeviceModel setDeviceData(DeviceModel deviceModel, SetDeviceDataAction action) {
     deviceModel.ip = action.ip!;
-    deviceModel.address = action.address!;
+    deviceModel.country = action.country!;
+    deviceModel.province = action.province!;
+    deviceModel.city = action.city!;
     return deviceModel;
   }
 

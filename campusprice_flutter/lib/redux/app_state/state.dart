@@ -31,7 +31,7 @@ class AppState {
   AppState.initialState() {
     userModel = UserModel(school: '卡塞尔学院',zone: '执行部中国分部');
     themeModel = ThemeModel(themeData: ThemeData.dark());
-    deviceModel = DeviceModel(ip: '0.0.0.0', address: '中国福建省');
+    deviceModel = DeviceModel(ip: '0.0.0.0', country: '',province: ' ',city: '');
   }
 
   AppState copyWith ({themeModel,userModel,deviceModel}){
@@ -48,7 +48,9 @@ class AppState {
           ? this.deviceModel
           : DeviceModel(
           ip: deviceModel.ip ?? this.deviceModel.ip,
-          address: deviceModel.address ?? this.deviceModel.address,
+          country: deviceModel.country ?? this.deviceModel.country,
+          province: deviceModel.province ?? ' ',
+          city: deviceModel.city ?? this.deviceModel.city,
       ),
     );
   }

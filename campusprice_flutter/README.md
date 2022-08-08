@@ -8,6 +8,8 @@ A new flutter project designed myself for look price of goods in school store.
 2. 拓展redux，实现用户学校，校区，头像信息的切换(User Model)
 3. 实现应用启动页动画展示loading
 4. 拓展Device Model，在loading时候异步实现初始化存储设备信息——经度和纬度和当前日期时间
+5. Device Model大修改，适配协调后端Spring Boot 项目
+6. 配置DIO网络，实现前后端连通，实现地址显示功能
 
 ## reference
 1. [Flutter Redux详细基础使用教程](https://blog.csdn.net/yhy1315/article/details/102471140)

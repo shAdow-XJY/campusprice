@@ -1,5 +1,7 @@
 package com.example.campusprice_springboot.controller;
 
+import com.example.campusprice_springboot.entity.GeoLiteEntity;
+import com.example.campusprice_springboot.entity.Response.R;
 import com.example.campusprice_springboot.util.GeoLiteUtil;
 import com.maxmind.geoip2.DatabaseReader;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.File;
 import java.io.IOException;
 
-@RequestMapping(value = "/getLocation")
+@RequestMapping(value = "/Location")
 @RestController
 public class GeoLiteController {
 
@@ -27,27 +29,36 @@ public class GeoLiteController {
 
     //post方法 + 请求体的参数
     @PostMapping(value = "/getCountry")
-    public String getCountry(@RequestParam(value = "ip") String ip) throws Exception {
-        return GeoLiteUtil.getCountry(reader,ip);
+    public R getCountry(@RequestParam(value = "ip") String ip) throws Exception {
+        return R.ok().data("country",GeoLiteUtil.getCountry(reader,ip));
     }
 
     @PostMapping(value = "/getProvince")
-    public String getProvince(@RequestParam(value = "ip") String ip) throws Exception {
-        return GeoLiteUtil.getProvince(reader,ip);
+    public R getProvince(@RequestParam(value = "ip") String ip) throws Exception {
+        return R.ok().data("province",GeoLiteUtil.getProvince(reader,ip));
     }
 
     @PostMapping(value = "/getCity")
-    public String getCity(@RequestParam(value = "ip") String ip) throws Exception {
-        return GeoLiteUtil.getCity(reader,ip);
+    public R getCity(@RequestParam(value = "ip") String ip) throws Exception {
+        return R.ok().data("city",GeoLiteUtil.getCity(reader,ip));
     }
 
     @PostMapping(value = "/getLongitude")
-    public double getLongitude(@RequestParam(value = "ip") String ip) throws Exception {
-        return GeoLiteUtil.getLongitude(reader,ip);
+    public R getLongitude(@RequestParam(value = "ip") String ip) throws Exception {
+        return R.ok().data("longitude",GeoLiteUtil.getLongitude(reader,ip));
     }
 
     @PostMapping(value = "/getLatitude")
-    public double getLatitude(@RequestParam(value = "ip") String ip) throws Exception {
-        return GeoLiteUtil.getLatitude(reader,ip);
+    public R getLatitude(@RequestParam(value = "ip") String ip) throws Exception {
+        return R.ok().data("latitude",GeoLiteUtil.getLatitude(reader,ip));
+    }
+
+    @PostMapping(value = "/getCountryProvinceCity")
+    public R getCountryProvinceCity(@RequestParam(value = "ip") String ip) throws Exception {
+        System.out.println(ip);
+        String country = GeoLiteUtil.getCountry(reader,ip);
+        String province = GeoLiteUtil.getProvince(reader,ip);
+        String city = GeoLiteUtil.getCity(reader,ip);
+        return R.ok().data("location",new GeoLiteEntity(country,province,city));
     }
 }
