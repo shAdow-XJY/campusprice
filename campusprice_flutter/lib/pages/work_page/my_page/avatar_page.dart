@@ -120,7 +120,7 @@ class _AvatarPageState extends State<AvatarPage> {
                 converter: (Store store) {
                   /// 返回的就是下面的 VoidCallback callback
                   return () => {
-                    store.dispatch(SetUserDataAction(avatar: selectedImageName))
+                    store.dispatch(SetUserDataAction(avatar: selectedImageName)),
                   };
                 },
                 builder: (BuildContext context, VoidCallback callback) {

@@ -1,3 +1,4 @@
+import 'package:campusprice_flutter/pages/work_page/my_page/select_school_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
@@ -94,8 +95,8 @@ class _MyBodyState extends State<MyBody> {
                 converter: (Store store) {
                   /// 返回的就是下面的 Map<String, dynamic> info
                   return {
-                    "school" : store.state.userModel.school,
-                    "zone" : store.state.userModel.zone,
+                    "school" : store.state.userModel.school ?? '',
+                    "zone" : store.state.userModel.zone ?? '',
                     "address" : store.state.deviceModel.getAddress(),
                   };
                 },
@@ -103,8 +104,22 @@ class _MyBodyState extends State<MyBody> {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      InfomationListItem(title: info["school"],icon: Icons.school,),
-                      InfomationListItem(title: info["zone"],icon: Icons.house,),
+                      TransparentInkWell(
+                          onTap: (){
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context){
+                                  return const SelectSchoolDialog(title: '选择学校');
+                                }
+                            );
+                          },
+                          child: InfomationListItem(title: info["school"],icon: Icons.school,),
+                      ),
+                      TransparentInkWell(
+                        onTap: (){
+                        },
+                        child: InfomationListItem(title: info["zone"],icon: Icons.house,),
+                      ),
                       InfomationListItem(title: info["address"],icon: Icons.phone_android,),
                     ],
                   );

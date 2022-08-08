@@ -24,18 +24,20 @@ dependencies:
   flutter:
     sdk: flutter
 
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
+  # iOS style icons
   cupertino_icons: ^1.0.2
+  # 底部导航栏
   circular_bottom_navigation: ^2.1.0
+  # 动画文件播放
   lottie: ^1.4.1
-
+  # 选择列表框
+  menu_button: ^1.4.2+1
+  # 状态管理
   redux: ^5.0.0
   flutter_redux: ^0.10.0
-
+  # 获取设备ip包
   dart_ipify: ^1.1.1
-
+  # 网络库
   dio: ^4.0.6
 
 dev_dependencies:

@@ -18,9 +18,9 @@ class SetUserDataAction {
 
   /// 设置用户User 的 数据
   static UserModel setUserData(UserModel user, SetUserDataAction action) {
-    user.school = action.school;
-    user.zone = action.zone;
-    user.avatar = action.avatar!;
+    action.school == null ?  null : user.school = action.school!;
+    action.zone == null ? null : user.zone = action.zone!;
+    action.avatar == null ? null : user.avatar = action.avatar!;
 
     return user;
   }

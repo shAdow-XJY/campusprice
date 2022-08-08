@@ -1,11 +1,11 @@
 import 'package:campusprice_flutter/service/http/device_service.dart';
+import 'package:campusprice_flutter/utils/device_util.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:lottie/lottie.dart';
 import 'package:redux/redux.dart';
 
-import '../../functions/device_class.dart';
 import '../../model/response.dart';
 import '../../redux/action/device_action.dart';
 import '../../redux/app_state/state.dart';
@@ -56,7 +56,7 @@ class _LoadingPageState extends State<LoadingPage> with TickerProviderStateMixin
     return StoreConnector<AppState, AsyncCallback>(
       converter: (Store store) {
         return () async => {
-          ip = await Device.getIp(),
+          ip = await DeviceUtil.getIp(),
           R = await DeviceService.getCountryProvinceCity(ip),
           {
             country = R.data["location"]["country"],

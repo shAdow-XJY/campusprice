@@ -17,4 +17,5 @@ CampusPrice项目后台支持项目，spring boot框架
 
 ### support
 1. [world city sql](https://github.com/bahar/WorldCityLocations)
-2. 
+2. [school sql](https://www.cnblogs.com/kongxiaoshuang/p/colleges_universities_list.html)
+3. 

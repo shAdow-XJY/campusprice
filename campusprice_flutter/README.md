@@ -10,6 +10,7 @@ A new flutter project designed myself for look price of goods in school store.
 4. 拓展Device Model，在loading时候异步实现初始化存储设备信息——经度和纬度和当前日期时间
 5. Device Model大修改，适配协调后端Spring Boot 项目
 6. 配置DIO网络，实现前后端连通，实现地址显示功能
+7. 抽离可复用性弹出框和下拉选项框，实现基础的省份选择框
 
 ## reference
 1. [Flutter Redux详细基础使用教程](https://blog.csdn.net/yhy1315/article/details/102471140)
