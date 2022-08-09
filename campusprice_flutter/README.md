@@ -19,9 +19,10 @@ A new flutter project designed myself for look price of goods in school store.
 > 注： 新方式为 Theme.of(context).colorScheme.background 
 4. [flutter 启动屏幕使用 Lottie 动画](https://zhuanlan.zhihu.com/p/376077465)
 
+
 ## support
 1. [lottie](https://lottiefiles.com/)
-2. [各城市经纬度整理](https://zhuanlan.zhihu.com/p/28653697)
+
 
 ## support packages
 see the [dependencies:] in file: [pubspec.yaml]

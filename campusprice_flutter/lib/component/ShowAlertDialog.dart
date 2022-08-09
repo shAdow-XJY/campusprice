@@ -17,7 +17,10 @@ class ShowAlertDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(title),
+      title: Text(
+        title,
+        textAlign: TextAlign.left,
+      ),
       content: child,
       actions: actions ??
           <Widget>[

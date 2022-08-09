@@ -44,7 +44,7 @@ class _SelectPopupState extends State<SelectPopup> {
         child: Text(value),
       ),
       toggledChild: SizedBox(
-        width: 93,
+        width: 360,
         height: 40,
         child: Padding(
           padding: const EdgeInsets.only(left: 16, right: 11),
@@ -79,7 +79,7 @@ class _SelectPopupState extends State<SelectPopup> {
         debugPrint('select pop state:$isToggle');
       },
       child: SizedBox(
-        width: 93,
+        width: 360,
         height: 40,
         child: Padding(
           padding: const EdgeInsets.only(left: 16, right: 11),

@@ -1,12 +1,13 @@
 import 'package:campusprice_flutter/redux/app_state/state.dart';
 import 'package:campusprice_flutter/router/router.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
 
-void main() {
+void main(){
   runApp(MyApp());
 }
 
