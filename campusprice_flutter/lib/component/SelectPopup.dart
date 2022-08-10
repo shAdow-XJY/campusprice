@@ -6,11 +6,13 @@ class SelectPopup extends StatefulWidget {
   final List<String> keys;
   final double? popupHeight;
   final Function(String) clickCallback;
+  final bool refreshing;
   const SelectPopup({
     Key? key,
     required this.keys,
     this.popupHeight,
     required this.clickCallback,
+    this.refreshing = false,
   }) : super(key: key);
 
   @override
@@ -30,10 +32,11 @@ class _SelectPopupState extends State<SelectPopup> {
   
   @override
   Widget build(BuildContext context) {
+    widget.refreshing ? selectedKey = '' : null;
     final height = MediaQuery.of(context).size.height;
     return MenuButton<String>(
-      menuButtonBackgroundColor: Theme.of(context).backgroundColor,
-      itemBackgroundColor: Theme.of(context).colorScheme.background,
+      menuButtonBackgroundColor: Theme.of(context).highlightColor,
+      itemBackgroundColor: Theme.of(context).highlightColor.withOpacity(0.7),
       scrollPhysics: const ScrollPhysics(),
       popupHeight: widget.popupHeight ?? height / 2.5,
       items: widget.keys,

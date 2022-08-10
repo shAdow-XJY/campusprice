@@ -4,6 +4,7 @@ import 'package:campusprice_flutter/router/router.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:oktoast/oktoast.dart';
 import 'package:redux/redux.dart';
 
 
@@ -25,6 +26,9 @@ class MyApp extends StatelessWidget {
         child: StoreBuilder<AppState>(
             builder: (context, store) {
               return MaterialApp(
+                  builder: (BuildContext context, Widget? widget) {
+                    return OKToast(child: widget!);
+                  },
                   debugShowCheckedModeBanner: false,
                   title: 'Campus Price',
                   theme: store.state.themeModel.themeData,

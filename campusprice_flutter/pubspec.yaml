@@ -39,6 +39,8 @@ dependencies:
   dart_ipify: ^1.1.1
   # 网络库
   dio: ^4.0.6
+  # Toast提示框
+  oktoast: ^3.2.0
 
 dev_dependencies:
   flutter_test:

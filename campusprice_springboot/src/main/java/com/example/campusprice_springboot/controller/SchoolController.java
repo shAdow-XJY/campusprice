@@ -21,7 +21,7 @@ public class SchoolController {
     @GetMapping(value = "/{province}")
     public R getSchoolList(@PathVariable(value = "province") String province){
         List<SchoolEntity> result = schoolService.getSchoolList(province);
-        return R.ok().data("Provinces",result);
+        return R.ok().data("Schools",result);
     }
 
 }
