@@ -30,7 +30,7 @@ class AppState {
    */
   AppState.initialState() {
     userModel = UserModel(school: '卡塞尔学院',zone: '执行部中国分部',avatar: 'avatar_0.jpg',);
-    themeModel = ThemeModel(themeData: ThemeData.dark());
+    themeModel = ThemeModel(brightness: Brightness.dark);
     deviceModel = DeviceModel(ip: '0.0.0.0', country: '',province: ' ',city: '');
   }
 

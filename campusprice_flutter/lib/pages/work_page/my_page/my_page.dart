@@ -18,7 +18,7 @@ AppBar MyAppBar = AppBar(
       return () => {
             dayMode = store.state.themeModel.getDayMode(),
             store.dispatch(SetThemeDataAction(
-                themeData: dayMode ? ThemeData.dark() : ThemeData.light()))
+                brightness: dayMode ? Brightness.dark : Brightness.light))
           };
     },
     builder: (BuildContext context, VoidCallback callback) {

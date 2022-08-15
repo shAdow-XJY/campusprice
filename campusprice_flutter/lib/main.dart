@@ -31,7 +31,9 @@ class MyApp extends StatelessWidget {
                   },
                   debugShowCheckedModeBanner: false,
                   title: 'Campus Price',
-                  theme: store.state.themeModel.themeData,
+                  theme: ThemeData(
+                    brightness: store.state.themeModel.brightness,
+                  ),
                   /// 初始化加载的路由
                   initialRoute: '/',
                   onGenerateRoute: onGenerateRoute
